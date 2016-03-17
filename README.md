@@ -43,14 +43,16 @@ use Yii;
 use swinetwork\Curler\Curler;
 
 $curler = new Curler();
+$simplyGet = $curler->get('http://www.swi.com');
+print_r($simplyGet->response);
 
-print_r($curler); // curl return output
-
-```
-
-Available Methods
------------------------
-```php
-
+$curler = new Curler();
+$data = array(
+    'id' => '1',
+    'key' => 'swi',
+    'date' => date('Y-m-d H:i:s')
+);
+$simplyPost = $curler->post('http://www.swi.com', $data);
+print_r($simplyPost->response);
 
 ```
